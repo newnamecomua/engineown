@@ -1,0 +1,15 @@
+.FW_content {
+	padding: 30px 245px 0px 5px;
+	padding: 30px 5px 0px 243px; 
+	min-height: 1px;
+}
+.FW_column_right{
+	float: left;
+	margin-right: -3px;
+	width: 245px;
+	margin-left: -245px;
+	position: relative;
+}
+.FW_column_left {
+	display: none;
+}
