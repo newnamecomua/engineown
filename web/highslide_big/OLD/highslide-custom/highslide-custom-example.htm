@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "xhtml11.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Highslide JS - Custom Example</title>
+
+<script type="text/javascript" src="highslide/highslide-full.js"></script>
+<script type="text/javascript" src="highslide/highslide.config.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="highslide/highslide.css" />
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="highslide/highslide-ie6.css" />
+<![endif]-->
+
+</head>
+<body>
+<h3>Gallery</h3>
+<div class="highslide-gallery">
+	<ul>
+	<li>
+	<a href="highslide/sample-images/thumbstrip01.jpg" class="highslide" 
+			title="Caption from the anchor's title attribute" 
+			onclick="return hs.expand(this, config1 )">
+		<img src="highslide/sample-images/thumbstrip01.thumb.jpg"  alt=""/>
+	</a>
+	</li>
+	<li>
+	<a href="highslide/sample-images/thumbstrip02.jpg" class="highslide" 
+			title="Caption from the anchor's title attribute" 
+			onclick="return hs.expand(this, config1 )">
+		<img src="highslide/sample-images/thumbstrip02.thumb.jpg"  alt=""/>
+	</a>
+	</li>
+	<li>
+	<a href="highslide/sample-images/thumbstrip12.jpg" class="highslide" 
+			title="Caption from the anchor's title attribute" 
+			onclick="return hs.expand(this, config1 )">
+		<img src="highslide/sample-images/thumbstrip12.thumb.jpg"  alt=""/>
+	</a>
+	</li>
+	<li>
+	<a href="highslide/sample-images/thumbstrip07.jpg" class="highslide" 
+			title="Caption from the anchor's title attribute" 
+			onclick="return hs.expand(this, config1 )">
+		<img src="highslide/sample-images/thumbstrip07.thumb.jpg"  alt=""/>
+	</a>
+	</li>
+	<li>
+	<a href="highslide/sample-images/thumbstrip22.jpg" class="highslide" 
+			title="Caption from the anchor's title attribute" 
+			onclick="return hs.expand(this, config1 )">
+		<img src="highslide/sample-images/thumbstrip22.thumb.jpg"  alt=""/>
+	</a>
+	</li>
+	<li>
+	<a href="highslide/sample-images/thumbstrip24.jpg" class="highslide" 
+			title="Caption from the anchor's title attribute" 
+			onclick="return hs.expand(this, config1 )">
+		<img src="highslide/sample-images/thumbstrip24.thumb.jpg"  alt=""/>
+	</a>
+	</li>
+	<li>
+	<a href="highslide/sample-images/thumbstrip03.jpg" class="highslide" 
+			title="Caption from the anchor's title attribute" 
+			onclick="return hs.expand(this, config1 )">
+		<img src="highslide/sample-images/thumbstrip03.thumb.jpg"  alt=""/>
+	</a>
+	</li>
+	<li>
+	<a href="highslide/sample-images/thumbstrip05.jpg" class="highslide" 
+			title="Caption from the anchor's title attribute" 
+			onclick="return hs.expand(this, config1 )">
+		<img src="highslide/sample-images/thumbstrip05.thumb.jpg"  alt=""/>
+	</a>
+	</li>
+	<li>
+	<a href="highslide/sample-images/thumbstrip06.jpg" class="highslide" 
+			title="Caption from the anchor's title attribute" 
+			onclick="return hs.expand(this, config1 )">
+		<img src="highslide/sample-images/thumbstrip06.thumb.jpg"  alt=""/>
+	</a>
+	</li>
+	<li>
+	<a href="highslide/sample-images/thumbstrip08.jpg" class="highslide" 
+			title="Caption from the anchor's title attribute" 
+			onclick="return hs.expand(this, config1 )">
+		<img src="highslide/sample-images/thumbstrip08.thumb.jpg"  alt=""/>
+	</a>
+	</li>
+	</ul>
+	<div style="clear:both"></div></div>
+
+<h3>HTML</h3>
+<div>
+	<a href="#" onclick="return hs.htmlExpand(this, { 
+			width: '608', headingText: 'Title from onclick', 
+			wrapperClassName: 'titlebar' } )">Inline HTML</a>
+	<div class="highslide-maincontent">
+		<h3>Lorem ipsum</h3>
+		Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam
+		dapibus leo quis nisl. In lectus. Vivamus consectetuer pede in nisl.
+		Mauris cursus pretium mauris. Suspendisse condimentum mi ac tellus.
+		Pellentesque habitant morbi tristique senectus et netus et malesuada
+		fames ac turpis egestas. Donec sed enim. Ut vel ipsum. Cras consequat
+		velit et justo. Donec mollis, mi at tincidunt vehicula, nisl mi luctus
+		risus, quis scelerisque arcu nibh ac nisi. Sed risus. Curabitur urna.
+		Aliquam vitae nisl. Quisque imperdiet semper justo. Pellentesque nonummy
+		pretium tellus.
+	</div>
+	-
+	<a href="highslide/sample-includes/include-short.htm" onclick="return hs.htmlExpand(this, { 
+			objectType: 'ajax', width: '608', 
+			headingText: 'Title from onclick', wrapperClassName: 'titlebar' } )">Ajax</a>
+	-
+	<a href="highslide/sample-includes/include-short.htm" onclick="return hs.htmlExpand(this, { 
+			objectType: 'iframe', width: '608', 
+			headingText: 'Title from onclick', wrapperClassName: 'titlebar' } )">Iframe</a>
+</div>
+
+</body>
+</html>

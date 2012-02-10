@@ -1,0 +1,178 @@
+<?php
+
+    define("FV_ROOT", realpath(dirname(__FILE__) . "/../"));
+    define("CURRENT_LANGUAGE", "ru");
+    $srv = $_SERVER['SERVER_NAME'];
+
+    if(preg_match('/itme.nn.ru/',$srv))  //local version     
+    {
+        $__server_host = 'itme.nn.ru';
+        $__db_server_host = 'localhost';
+        $__db_server_user = 'root';
+        $__db_server_pass = '';       
+        
+        $__server_host = 'itme.nn.ua';
+        $__db_server_host = 'mysql.h4.newname.com.ua';
+        $__db_server_user = 'itme';
+        $__db_server_pass = 'ES3ikpzF';
+        
+    }
+    else
+    {
+        $__server_host = 'itme.nn.ua';
+        $__db_server_host = 'mysql.h4.newname.com.ua';
+        $__db_server_user = 'itme';
+        $__db_server_pass = 'ES3ikpzF';
+    }
+    
+    define("__SERVER_NAME",     $__server_host);
+    define("__DB_SERVER_NAME",  $__db_server_host);
+    define("__DB_SERVER_USER",  $__db_server_user);
+    define("__DB_SERVER_PASS",  $__db_server_pass);
+
+?>
+
+server_name: %__SERVER_NAME%
+site_name: itme
+dir_root: %FV_ROOT%
+tech_web_root: %FV_ROOT%web/
+dir_web_root: /
+cdn_root: http://img.%server_name%/
+cdn_enable: false
+charset: utf-8
+language: %CURRENT_LANGUAGE%
+
+
+database:
+ dsn: mysql://%__DB_SERVER_USER%:%__DB_SERVER_PASS%@%__DB_SERVER_NAME%/itme
+ driver: mysql
+ host: %__DB_SERVER_NAME%
+ user: itme
+ pass: ES3ikpzF
+ name: itme
+ db_prefix: itme_
+
+ftp:
+ server_name: %server_name%
+ user: itme
+ pass: zBbynADP
+
+session:
+ use_database: true
+ sess_name: fv_session
+ life_time: 10000
+ table: %database.db_prefix%session
+
+filters: [fvActionFilter]
+
+path:
+ font: %tech_web_root%font/
+ classes: %dir_root%classes/
+ announce_url: http://%server_name%:2512/
+ error: %dir_root%error/error.log 
+ db: %path.classes%DB/
+ entity: %path.classes%entity/
+ filters: %path.classes%filter/
+ interfaces: %path.classes%interface/
+ exceptions: %path.classes%exceptions/
+ includes: %dir_root%includes/
+ config: %dir_root%config/
+ app: %dir_root%app/
+ css: %dir_web_root%css/
+ js: %dir_web_root%js/
+ cache: %dir_root%xcache/
+ media_web: %dir_web_root%upload/media/
+ web_captcha_root: %dir_web_root%captcha/
+ tech_captcha_root: %tech_web_root%captcha/
+ smarty:
+  class_path: %dir_root%smarty/
+ upload:
+  media: %tech_web_root%upload/media/   
+  media_web: %dir_web_root%upload/media/
+  temp_image: %tech_web_root%upload/tmp/ 
+  web_temp_image: %dir_web_root%upload/tmp/
+  advertise: %tech_web_root%upload/advertise/   
+  partner: %tech_web_root%upload/advertise/   
+  press_centre: %tech_web_root%upload/press_centre/   
+  advertise_web: %dir_web_root%upload/advertise/
+  partner_web: %dir_web_root%upload/advertise/
+  press_centre_web: %dir_web_root%upload/press_centre/
+  project_web: %dir_web_root%upload/project/
+  project: %tech_web_root%upload/project/   
+  service_web: %dir_web_root%upload/service/
+  service: %tech_web_root%upload/service/   
+  solution_web: %dir_web_root%upload/solution/
+  solution: %tech_web_root%upload/solution/   
+  
+ application:
+  backend:
+   root: %path.app%backend/
+   web_root: %dir_web_root%backend/
+   config: %path.application.backend.root%config/
+   classes: %path.application.backend.root%classes/
+  frontend:
+   root: %path.app%frontend/
+   web_root: %dir_web_root%
+   config: %path.application.frontend.root%config/
+   classes: %path.application.frontend.root%classes/ 
+     
+editor:
+  basepath: %dir_web_root%fckeditor/
+  toolbar: fv
+  config: %path.js%fvfckconfig.js
+  className:
+  style: width: 95%; margin: 2px 0px 10px 10px; border:solid 1px #aacfe4;
+
+  
+
+lang:
+  default: ru
+  current: %CUR_LANG%  
+  
+languages:
+  ru:
+    legend: по-русски
+    prefix: ru
+    name: Rus
+    default: true 
+  en:
+    legend: по-английски
+    prefix: en
+    name: Eng
+    default: false   
+  ua:
+    legend: по-украински
+    prefix: ua
+    name: Ukr
+    default: false 
+  
+cache:
+  cachetime: 60
+
+email:
+  from_name: Администратор
+  from_email: alex@newname.com.ua
+  bcc: alex@newname.com.ua
+  error_email: alex@newname.com.ua
+  feedback: [mm@mki.com.ua, sas@invogroup.com]
+  
+images:
+  default_type: normal
+  large:
+    width: 965
+    height: 352
+    type: <?php echo fvMediaLib::THUMB_WIDTH . "\n" ?>
+  normal:
+    width: 300
+    height: 300
+    type: <?php echo fvMediaLib::THUMB_WIDTH . "\n" ?>
+  small:
+    width: 231
+    height: 84
+    type: <?php echo fvMediaLib::THUMB_WIDTH . "\n" ?>
+  thumb:
+    width: 100
+    height: 100
+    type: <?php echo fvMediaLib::THUMB_WIDTH . "\n" ?>
+pager:
+  show_per_page: 8;

@@ -1,0 +1,144 @@
+modules:
+  staticpages:
+    path: %path.modules%staticpages/
+    action_class: StaticPagesAction
+    module_class: StaticPagesModule
+    name: Статические страницы
+    shows: {full: Полный список/одна страница, short: Короткий список - заголовки, one: Одна страница по имени}
+    params:
+      full:
+          count: {name: Количество на странице, default: 10}
+      short:
+          count_short: {name: Количество в коротком виде, default: 2}
+          count_long: {name: Количество в длинном виде, default: 5}
+      one:
+        tech_name: {name: Имя страницы, default: ~}
+    access:
+      enable: false
+    smarty:
+      template: %modules.staticpages.path%template/
+      compile: %path.smarty.compile%
+  
+  index:
+    path: %path.modules%index/
+    action_class: IndexAction
+    module_class: IndexModule
+    name: Главная страница
+    shows: {index: Главная страница, header: Заголовок}
+    access:
+      enable: false
+    smarty:
+      template: %modules.index.path%template/
+      compile: %path.smarty.compile%
+  
+  menu:
+    path: %path.modules%menu/
+    action_class: MenuAction
+    module_class: MenuModule
+    shows: {index: Меню}
+    name: Меню
+    access:
+      enable: false
+    smarty:
+      template: %modules.menu.path%template/
+      compile: %path.smarty.compile% 
+
+<?php /*Модуль новостей*/ ?>      
+  news:
+    path: %path.modules%news/
+    action_class: NewsAction
+    module_class: NewsModule
+    name: Новости
+    shows: {Index: основное отображение, Latest: Последние 5 новостей}     
+    access:           
+      enable: false
+    pager:
+      show_per_page: 5
+    smarty:
+      template: %modules.news.path%template/
+      compile: %path.smarty.compile%   
+      
+  feedback:
+    path: %path.modules%feedback/
+    action_class: FeedbackAction
+    module_class: FeedbackModule
+    name: Обратная связь
+    shows: {index: Форма обратной связи}
+    access:
+      enable: false
+    smarty:
+      template: %modules.feedback.path%template/
+      compile: %path.smarty.compile%   
+         
+  advertise:
+    path: %path.modules%advertise/
+    action_class: AdvertiseAction
+    module_class: AdvertiseModule
+    name: Центральный рекламный блок
+    shows: {index: Центральный рекламный блок}
+    access:
+      enable: false
+    smarty:
+      template: %modules.advertise.path%template/
+      compile: %path.smarty.compile%       
+      
+  presscentre:
+    path: %path.modules%presscentre/
+    action_class: PressCentreAction
+    module_class: PressCentreModule
+    name: Пресс-центр
+    shows: {index: Пресс-центр}
+    access:
+      enable: false
+    smarty:
+      template: %modules.presscentre.path%template/
+      compile: %path.smarty.compile%   
+      
+  partner:
+    path: %path.modules%partner/
+    action_class: PartnerAction
+    module_class: PartnerModule
+    name: Партнёры
+    shows: {index: Партнёры}
+    access:
+      enable: false
+    smarty:
+      template: %modules.partner.path%template/
+      compile: %path.smarty.compile%
+            
+  i:
+    path: %path.modules%i/
+    action_class: ServiceAction
+    module_class: ServiceModule
+    name: Услуги
+    shows: {index: Услуги}
+    access:
+      enable: false
+    smarty:
+      template: %modules.i.path%template/
+      compile: %path.smarty.compile%
+
+  solution:
+    path: %path.modules%solution/
+    action_class: SolutionAction
+    module_class: SolutionModule
+    name: Решения
+    shows: {index: Решения}
+    access:
+      enable: false
+    smarty:
+      template: %modules.solution.path%template/
+      compile: %path.smarty.compile%
+      
+      
+  project:
+    path: %path.modules%project/
+    action_class: ProjectAction
+    module_class: ProjectModule
+    name: Проекты
+    shows: {index: Проекты}
+    access:
+      enable: false
+    smarty:
+      template: %modules.project.path%template/
+      compile: %path.smarty.compile%      

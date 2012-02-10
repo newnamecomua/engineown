@@ -1,0 +1,34 @@
+.gallery_wrap_1{
+    width: 965px;
+    height: 352px;
+    margin: 0px auto;
+}
+.gallery_1{
+    width: 965px;
+    height: 352px;
+    position: relative;
+}
+.nivo-controlNav{
+    position: absolute;
+    right: 0px;
+    bottom: -42px;
+}
+.nivo-controlNav a{
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    margin: 2px;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    text-indent: -100px;
+}
+.nivo-controlNav a.active{
+    background-position: 0px -52px;
+}
+.nivo-prevNav{
+    display: none;
+}
+.nivo-nextNav{
+    display: none;
+}

@@ -1,0 +1,99 @@
+routes:
+  ajax_news_comments:
+    url: /news/comments/
+    module: news
+    action: comments
+  
+  ajax_news_node:
+    url: /news/childNodes/
+    module: news
+    action: childNodes
+
+  ajax_news_add:
+    url: /news/add/
+    module: news
+    action: add 
+    
+  ajax_gallery_comments:
+    url: /gallery/comments/
+    module: gallery
+    action: comments
+  
+  ajax_gallery_node:
+    url: /gallery/childNodes/
+    module: gallery
+    action: childNodes
+
+  ajax_gallery_add:
+    url: /gallery/add/
+    module: gallery
+    action: add      
+    
+  gallery_photo:
+    url: /gallery/view/:album_url/one/:photo_id/
+    module: gallery
+    action: one
+    params:
+      album_url: [a-z0-9\_]{1,255}   
+      photo_id: [0-9]{1,11}   
+
+  gallery_one:
+    url: /gallery/view/:album_url/
+    module: gallery
+    action: view
+    params:
+      album_url: [a-z0-9\_]{1,255} 
+      
+  gallery_all:
+    url: /gallery/all/:type/
+    module: gallery
+    action: index
+    params:
+      type: video|\s{0,0}      
+       
+  rubric_all:
+    url: /news/:part_url/all/
+    module: news
+    action: all
+    params:
+      part_url: [a-z0-9\_]{1,255}
+  
+  news_tagged:
+    url: /news/tagged/:tag_url/
+    module: news
+    action: tagged
+    params:
+      tag_url: [a-z0-9\_]{1,255}
+      
+  rubric_one:
+    url: /news/:part_url/view/:art_url/
+    module: news
+    action: view
+    params:
+      part_url: [a-z0-9\_]{1,255}
+      art_url: [a-z0-9\_]{1,255}
+      
+  save-latest:
+    url: /news/latest/
+    module: news
+    action: latest
+    params: []
+    
+  save-subscribe:
+    url: /news/savesubscribe/
+    module: news
+    action: savesubscribe
+    params: []
+  
+  view-news:
+    url: /news/:news_url/
+    module: news
+    action: view
+    params:
+      news_url: [a-zA-Z0-9\_]+
+          
+  default:
+    url: /:module/:action
+    params: []
+
+    

@@ -1,0 +1,186 @@
+entities:
+  User:
+   table_name: %database.db_prefix%users
+   primary_key: id
+   fields:
+     group_id: {value: 0, changed: false, type: int}
+     login: {value: , changed: false, type: string, validate: true, invalid_string: Логин должен быть уникальным содержать не менее 4-х символов и состоять из цифр букв и знака "_"}
+     password: {value: , changed: false, type: string, pre_func: md5, validate: true, invalid_string: Пароль должен быть более 4-х символов}
+     email: {value: , changed: false, type: string, validate: true, invalid_string: Введите пожалуйста валидный адрес электронной почты}
+     create_date: {value: , changed: false, type: date, auto_set: Insert, auto_value: now()}
+     update_date: {value: , changed: false, type: date, auto_set: Update, auto_value: now()}
+     full_name: {value: , changed: false, type: string}
+     info: {value: , changed: false, type: string}
+     active: {value: false, changed: false, type: bool}
+     permitions: {value: , changed: false, type: array}
+     is_root: {value: false, changed: false, type: bool}
+     inherit: {value: false, changed: false, type: bool}
+
+  UserGroup:
+    table_name: %database.db_prefix%user_groups
+    primary_key: id
+    fields:
+      group_name: {value: , changed: false, type: string, validate: true, invalid_string: Имя должно быть не пустым}
+      info: {value: , changed: false, type: string}
+      permitions: {value: , changed: false, type: array}
+      default_group: {value: false, changed: false, type: bool}
+      last_update: {value: , changed: false, type: date, auto_set: Any, auto_value: now()}
+
+  Page:
+    table_name: %database.db_prefix%pages
+    primary_key: id
+    fields:
+      page_parent_id: {value: 0, changed: false, type: int}
+      page_name: {value: , changed: false, type: string, validate: true, invalid_string: Имя должно быть не пустым и не должно равняться 'default'}
+      page_url: {value: , changed: false, type: string, validate: true, invalid_string: URL должен быть не пустым}
+      page_title: {value: , changed: false, type: string}
+      page_description: {value: , changed: false, type: string}
+      page_keywords: {value: , changed: false, type: string}
+      page_content: {value: , changed: false, type: string}
+      js: {value: , changed: false, type: string}
+      css: {value: , changed: false, type: string}
+      meta_id: {value: , changed: false, type: meta_id}
+      image: {value: , changed: false, type: string}
+
+  StaticPages:
+    table_name: %database.db_prefix%static_pages
+    primary_key: id
+    fields:
+      tech_url: {value: , changed: false, type: string, validate: true, invalid_string: URL не должен быть пустым}
+      name: {value: , changed: false, type: string, validate: true, invalid_string: Имя должно быть не пустым, multilang: true, field: input}
+      title: {value: , changed: false, type: string, validate: true, invalid_string: Заголовок должен быть не пустым, multilang: true, field: input}
+      content: {value: , changed: false, type: string, multilang: true, field: redactor}
+      is_system: {value: false, changed: false, type: bool}
+
+  Log:
+    table_name: %database.db_prefix%log
+    primary_key: id
+    fields:
+      operation: {value: , changed: false, type: string}
+      object_type: {value: , changed: false, type: string}
+      object_name: {value: , changed: false, type: string}
+      object_id: {value: 0, changed: false, type: int}
+      edit_link: {value: , changed: false, type: string}
+      manager_id: {value: 0, changed: false, type: int}
+      date: {value: , changed: false, type: date, auto_set: Insert, auto_value: now()}   
+      message: {value: , changed: false, type: string}                                      
+      
+<?php /*новости*/ ?>        
+  News:
+    table_name: %database.db_prefix%news
+    primary_key: id
+    fields:
+      name: {value: , changed: false, type: string, validate: true, multilang: true}
+      url: {value: , changed: false, type: string, validate: true}
+      meta_id: {value:, changed: false, type: int, validate: true}
+      heading: {value: , changed: false, type: string, validate: true, multilang: true, field: textarea}
+      text: {value: , changed: false, type: string, validate: true, multilang: true, field: redactor}
+      create_time: {value: , changed: false, type: date, auto_set: Insert, auto_value: now()}
+      shows: {value: , changed: false, type: int, validate: false}
+      weight: {value: , changed: false, type: int}      
+      is_active: {value: , changed: false, type: bool}    
+      
+      
+<?php /*meta*/ ?>        
+  Meta:
+    table_name: %database.db_prefix%meta
+    primary_key: id
+    fields:      
+      title: {value: , changed: false, type: string, validate: true, multilang: true}
+      description: {value: , changed: false, type: string, validate: true, multilang: true, field: textarea}
+      keywords: {value: , changed: false, type: string, validate: true, multilang: true, field: textarea}
+      ctime: {value: , changed: false, type: date, auto_set: Insert, auto_value: now()}
+      
+      
+  Menu:
+    table_name: %database.db_prefix%menu
+    primary_key: id
+    fields:
+      name: {value: , changed: false, type: string, validate: true, multilang: true, field: input}      
+      type_id: {value: , changed: false, type: int, validate: false}      
+      url: {value: , changed: false, type: string, validate: true}      
+      is_target: {value: , changed: false, type: bool, validate: false}      
+      weight: {value: , changed: false, type: int, validate: false}      
+      parent_id: {value: , changed: false, type: int, validate: false}            
+      is_show: {value: , changed: false, type: bool,  validate: false}       
+      
+  FeedBack:
+    table_name: %database.db_prefix%feedback
+    primary_key: id
+    fields:
+      name: {value: , changed: false, type: string, validate: true, filter: true}      
+      email: {value: , changed: false, type: string, validate: true}      
+      phone: {value: , changed: false, type: string, validate: false, filter: true}      
+      message: {value: , changed: false, type: string, validate: true, filter: true}
+      ctime: {value: , changed: false, type: string, validate: false}      
+
+
+  Advertise:                     
+    table_name: %database.db_prefix%advertise
+    primary_key: id
+    fields:
+      title: {value: , changed: false, type: string, validate: true, multilang: true}
+      image: {value: , changed: false, type: string,  validate: false}       
+      url: {value: , changed: false, type: string,  validate: false}       
+      weight: {value: , changed: false, type: int,  validate: false}       
+      is_show: {value: , changed: false, type: bool,  validate: false} 
+      is_target: {value: , changed: false, type: bool,  validate: false}   
+      
+  Partner:                     
+    table_name: %database.db_prefix%partner
+    primary_key: id
+    fields:
+      title: {value: , changed: false, type: string, validate: true, multilang: true}
+      image: {value: , changed: false, type: string,  validate: false}       
+      url: {value: , changed: false, type: string,  validate: true}       
+      weight: {value: , changed: false, type: int,  validate: false}       
+      is_show: {value: , changed: false, type: bool,  validate: false} 
+      is_target: {value: , changed: false, type: bool,  validate: false}    
+               
+  PressCentre:                     
+    table_name: %database.db_prefix%press_centre
+    primary_key: id
+    fields:
+      name: {value: , changed: false, type: string, validate: true, multilang: true}
+      url: {value: , changed: false, type: string,  validate: true}       
+      file: {value: , changed: false, type: string,  validate: false}       
+      icon: {value: , changed: false, type: string,  validate: false}       
+      weight: {value: , changed: false, type: int,  validate: false}       
+      is_show: {value: , changed: false, type: bool,  validate: false}       
+      
+  Project:                     
+    table_name: %database.db_prefix%project
+    primary_key: id
+    fields:
+      name: {value: , changed: false, type: string, validate: true, multilang: true}
+      short_text: {value: , changed: false, type: string, validate: true, multilang: true, field:textarea}
+      full_text: {value: , changed: false, type: string, validate: true, multilang: true, field:redactor}
+      image: {value: , changed: false, type: string,  validate: false}       
+      url: {value: , changed: false, type: string,  validate: true}       
+      weight: {value: , changed: false, type: int,  validate: false}       
+      is_show: {value: , changed: false, type: bool,  validate: false}
+            
+  Service:                     
+    table_name: %database.db_prefix%service
+    primary_key: id
+    fields:
+      name: {value: , changed: false, type: string, validate: true, multilang: true}
+      short_text: {value: , changed: false, type: string, validate: true, multilang: true, field:textarea}
+      full_text: {value: , changed: false, type: string, validate: true, multilang: true, field:redactor}
+      image: {value: , changed: false, type: string,  validate: false}       
+      url: {value: , changed: false, type: string,  validate: true}       
+      weight: {value: , changed: false, type: int,  validate: false}       
+      service_type: {value: , changed: false, type: int,  validate: false}       
+      is_show: {value: , changed: false, type: bool,  validate: false}      
+            
+  Solution:                     
+    table_name: %database.db_prefix%solution
+    primary_key: id
+    fields:
+      name: {value: , changed: false, type: string, validate: true, multilang: true}
+      short_text: {value: , changed: false, type: string, validate: true, multilang: true, field:textarea}
+      full_text: {value: , changed: false, type: string, validate: true, multilang: true, field:redactor}
+      image: {value: , changed: false, type: string,  validate: false}       
+      url: {value: , changed: false, type: string,  validate: true}       
+      weight: {value: , changed: false, type: int,  validate: false}       
+      is_show: {value: , changed: false, type: bool,  validate: false}      

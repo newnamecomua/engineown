@@ -1,0 +1,30 @@
+DirectoryIndex index.php index.html	
+	
+<IfModule mod_setenvif.c>
+        SetEnvIf Remote_Addr ^192\.168\.2\. __DEBUG__
+        SetEnvIf Remote_Addr ^127\.0\.0 __DEBUG__
+</IfModule>
+
+<IfModule mod_php4.c>
+        php_value log_errors 0
+        php_value register_argc_argv 1
+        php_value register_globals 0 
+        php_value session.use_trans_sid 0
+        php_value output_buffering On
+        php_value magic_quotes_gpc Off
+        php_value display_errors On
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteBase /backend/
+
+    RewriteCond %{REQUEST_URI} css/  [NC,OR]
+    RewriteCond %{REQUEST_URI} js/  [NC,OR]
+    RewriteCond %{REQUEST_URI} img/  [NC]
+    RewriteRule (.*) - [L,QSA,NS]
+
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^/?([a-zA-Z0-9_\-\/]*)$ /backend/index.php?__url=$1 [L,QSA]
+</IfModule>

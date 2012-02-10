@@ -1,0 +1,10 @@
+<?php /* Smarty version 2.6.21, created on 2012-02-02 17:18:39
+         compiled from login.login_form.tpl */ ?>
+<div id="content" style="padding: 0px;">
+<div class="form" style="border: none">
+    <H1>Вход в систему</H1>
+    <p>Ваша сессия истекла. Пожалуйста введите свои логин и пароль для продолжения работы. Или нажмите "отмена" и начните работу с главной страницы сайта</p>
+    <label for="login">Логин</label> <input type="text" id="login" name="login" style="width: 260px;" /><br />
+    <label for="password">Пароль</label> <input type="password" id="password" name="password" style="width: 260px;" /><br />
+</div>
+</div>
